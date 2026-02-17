@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laercio Alves Filho | Portfólio AEC Sênior</title>
+    
+    <!-- Core: Tailwind CSS & Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&display=swap');
+        
+        :root {
+            --bg-deep: #050505;
+            --bg-card: #0a0a0a;
+            --border: #141414;
+            --accent: #2563eb;
+            --text-main: #f5f5f5;
+            --text-dim: #a3a3a3;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-deep); 
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .bg-draft {
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        h1 { font-size: clamp(2.2rem, 5vw, 4.2rem); line-height: 1.05; font-weight: 100; letter-spacing: -0.05em; }
+        h2 { font-size: 1.1rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.25em; }
+        
+        .input-tech {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            padding: 1rem;
+            width: 100%;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+        }
+        .input-tech:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .btn-tech {
+            background: white;
+            color: black;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.7rem;
+            padding: 1.25rem 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .btn-tech:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .project-card { transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease; cursor: pointer; border: 1px solid var(--border); }
+        .project-card:hover { background: #0c0c0c; transform: translateY(-8px); }
+
+        .modal-active { overflow: hidden; }
+        ::-webkit-scrollbar { width: 3px; }
+        ::-webkit-scrollbar-track { background: var(--bg-deep); }
+        ::-webkit-scrollbar-thumb { background: #333; }
+
+        /* Estilos Calculadora Avançada */
+        .status-pill {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 9px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .status-ok { background: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2); }
+        .status-alert { background: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.2); }
+
+        .image-gallery img {
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: border-color 0.3s ease;
+        }
+        .image-gallery img:hover {
+            border-color: var(--accent);
+        }
+    </style>
+</head>
+<body class="bg-draft">
+
+    <!-- NAVEGAÇÃO -->
+    <nav class="fixed top-0 w-full z-50 bg-black/60 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-10 py-6 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="w-1.5 h-4 bg-blue-600"></div>
+                <span class="text-[11px] font-bold tracking-[0.4em] uppercase text-white">Laercio Alves Filho</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-12 text-[10px] font-medium uppercase tracking-[0.2em]">
+                <a href="#home" class="text-neutral-500 hover:text-white transition">Início</a>
+                <a href="#projetos" class="text-neutral-500 hover:text-white transition">Portfólio</a>
+                <a href="#calculadora" class="text-neutral-500 hover:text-white transition">Calculadora</a>
+                <a href="#contato" class="text-blue-600 border-l border-white/10 pl-10 font-bold">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="home" class="min-h-screen flex items-center px-6 md:px-10 pt-20">
+        <div class="max-w-7xl mx-auto w-full">
+            <span class="text-blue-600 text-[10px] font-bold uppercase tracking-[0.6em] mb-12 block">AEC Sênior & Backend Engineer</span>
+            <h1 class="mb-14 max-w-5xl">
+                Infraestrutura <span class="text-neutral-700 italic">Conectada</span>.<br>
+                Do canteiro ao <span class="text-white font-medium">Cloud.</span>
+            </h1>
+        </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos" class="py-24 px-6 md:px-10">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-white mb-16 border-b border-white/5 pb-8">Projetos <span class="italic text-blue-600">Destaque</span></h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Projeto Cleber com Capa Real -->
+                <div onclick="openModal('cleber')" class="project-card bg-white/[0.01] overflow-hidden group">
+                    <div class="h-64 bg-neutral-900 overflow-hidden">
+                        <img src="cleber_capa.jpg" alt="Galpão Cleber" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition duration-700">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-white uppercase mb-2 tracking-widest">Galpão Cleber</h3>
+                        <p class="text-neutral-500 text-xs mb-6 uppercase tracking-wider">Logística Industrial & Detalhamento BIM</p>
+                        <span class="text-[10px] font-bold text-blue-500 tracking-widest uppercase italic border-b border-blue-500/20 pb-1">Explorar Dossiê Técnico →</span>
+                    </div>
+                </div>
+
+                <div onclick="openModal('escada')" class="project-card bg-white/[0.01] overflow-hidden group">
+                    <div class="h-64 bg-neutral-900 flex items-center justify-center italic text-neutral-700 text-xs tracking-widest uppercase">
+                        Imagem em Breve
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-white uppercase mb-2 tracking-widest">Escada Front</h3>
+                        <p class="text-neutral-500 text-xs mb-6 uppercase tracking-wider">Detalhamento Metal-Mecânico Executivo</p>
+                        <span class="text-[10px] font-bold text-blue-500 tracking-widest uppercase italic border-b border-blue-500/20 pb-1">Explorar Dossiê Técnico →</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALCULADORA URBANÍSTICA -->
+    <section id="calculadora" class="py-32 px-6 md:px-10 bg-neutral-950/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-24">
+                <div>
+                    <h2 class="text-white mb-8 italic">Motor de <span class="text-blue-600">Viabilidade (EVTL)</span></h2>
+                    <p class="text-neutral-500 mb-12 font-light text-sm">Ferramenta conceitual para análise de potencial construtivo. Simule os índices para uma análise técnica preliminar.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-[9px] uppercase tracking-widest text-neutral-600 mb-2 block">Área Terreno (m²)</label>
+                                <input type="number" id="area-terreno" class="input-tech" placeholder="Ex: 1000">
+                            </div>
+                            <div>
+                                <label class="text-[9px] uppercase tracking-widest text-neutral-600 mb-2 block">Macro-Zoneamento</label>
+                                <select id="zoneamento" class="input-tech" onchange="updateCAMax()">
+                                    <option value="1">Zona Residencial (CA: 1.0)</option>
+                                    <option value="2">Zona Mista (CA: 2.0)</option>
+                                    <option value="4" selected>Eixo Estruturante (CA: 4.0)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-[9px] uppercase tracking-widest text-neutral-600 mb-2 block">Área Térreo (Ocupação)</label>
+                                <input type="number" id="area-terreo" class="input-tech" placeholder="Ex: 600">
+                            </div>
+                            <div>
+                                <label class="text-[9px] uppercase tracking-widest text-neutral-600 mb-2 block">Área Construída Total</label>
+                                <input type="number" id="area-construida" class="input-tech" placeholder="Ex: 3500">
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <button onclick="calcularEGravar()" class="btn-tech flex-1">Processar Análise</button>
+                            <button onclick="limparCalculadora()" class="border border-white/10 px-6 hover:bg-white/5 transition text-[10px] uppercase tracking-widest">Limpar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border border-white/5 p-8 flex flex-col justify-between bg-black/40 relative">
+                    <div class="absolute top-4 right-4 text-[8px] uppercase tracking-[0.4em] text-neutral-800 font-mono">Simulador AEC v1.0</div>
+                    
+                    <div class="space-y-10 mt-8">
+                        <div class="flex justify-between items-end border-b border-white/5 pb-4">
+                            <div>
+                                <span class="text-neutral-600 text-[10px] uppercase tracking-[0.3em] block mb-1">Taxa de Ocupação (T.O.)</span>
+                                <div id="res-to" class="text-4xl font-thin text-white">0<span class="text-sm ml-2 text-neutral-700">%</span></div>
+                            </div>
+                            <div id="status-to" class="hidden status-pill status-ok">DENTRO DO LIMITE</div>
+                        </div>
+
+                        <div class="flex justify-between items-end border-b border-white/5 pb-4">
+                            <div>
+                                <span class="text-neutral-600 text-[10px] uppercase tracking-[0.3em] block mb-1">Coef. Aproveitamento (C.A.)</span>
+                                <div id="res-ca" class="text-4xl font-thin text-white">0.00</div>
+                            </div>
+                            <div id="status-ca" class="hidden status-pill status-ok">CONFORMIDADE</div>
+                        </div>
+
+                        <div class="bg-white/[0.02] p-6 border-l-2 border-blue-600">
+                            <span class="text-neutral-600 text-[10px] uppercase tracking-[0.3em] block mb-3">Saldo de Área Construída</span>
+                            <div id="res-potencial" class="text-3xl font-light text-blue-500">0.00 <span class="text-xs text-neutral-600 tracking-normal">m²</span></div>
+                            <p id="msg-potencial" class="text-[9px] text-neutral-500 mt-2 uppercase tracking-widest italic leading-relaxed">Aguardando parâmetros para validação técnica...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="py-32 px-6 md:px-10">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-white italic mb-4">Novo <span class="text-blue-600">Briefing</span></h2>
+                <p class="text-neutral-500 font-light italic text-sm">Envie os detalhes do seu projeto para análise técnica.</p>
+            </div>
+
+            <form id="contact-form" onsubmit="enviarMensagem(event)" class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <input type="text" id="nome" placeholder="NOME COMPLETO" class="input-tech" required>
+                    <input type="email" id="email" placeholder="EMAIL CORPORATIVO" class="input-tech" required>
+                </div>
+                <input type="text" id="assunto" placeholder="ASSUNTO" class="input-tech" required>
+                <textarea id="mensagem" rows="5" placeholder="DETALHES DO PROJETO OU DEMANDA AEC" class="input-tech" required></textarea>
+                
+                <button type="submit" id="btn-enviar" class="btn-tech w-full">Disparar Mensagem para a Cloud</button>
+                <p id="form-status" class="text-center text-[10px] uppercase tracking-widest mt-4"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-20 border-t border-white/5 text-center">
+        <span class="text-[9px] font-bold text-neutral-800 uppercase tracking-widest italic">
+            Built with Apps Script & GitHub | Alves Studio 2024
+        </span>
+    </footer>
+
+    <!-- MODAL SISTEMA -->
+    <div id="modal-container" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-black/98 transition-all duration-500 backdrop-blur-sm">
+        <div class="bg-neutral-950 w-full h-full flex flex-col relative overflow-hidden">
+            <!-- Header do Modal -->
+            <div class="flex justify-between items-center px-10 py-6 border-b border-white/5">
+                <div class="flex items-center gap-4">
+                    <div class="w-1 h-3 bg-blue-600"></div>
+                    <span id="modal-title" class="text-[10px] font-bold tracking-[0.4em] uppercase text-white">Dossiê Técnico</span>
+                </div>
+                <button onclick="closeModal()" class="text-neutral-500 hover:text-white text-3xl font-light">&times;</button>
+            </div>
+            
+            <!-- Conteúdo do Modal -->
+            <div id="modal-content" class="flex-1 overflow-y-auto px-6 py-12">
+                <!-- Injetado via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- DATA DE PROJETOS ---
+        const projectDetails = {
+            'cleber': {
+                title: 'Galpão Cleber',
+                description: 'Desenvolvimento de Masterplan e projeto executivo industrial focado em otimização de fluxo logístico e precisão construtiva.',
+                tags: ['BIM', 'Logística', 'Executivo'],
+                images: [
+                    { src: 'cleber_implantacao.jpg', label: 'Implantação Geral' },
+                    { src: 'cleber_fachada.png', label: 'Elevações de Fachada' },
+                    { src: 'cleber_cortes.png', label: 'Cortes Transversais e Longitudinais' },
+                    { src: 'cleber_wireframe.jpg', label: 'Modelo Estrutural / Wireframe' }
+                ]
+            },
+            'escada': {
+                title: 'Escada Front',
+                description: 'Detalhamento avançado de escada metálica com foco em fabricação industrial e montagem rápida.',
+                tags: ['Metal-Mecânica', 'Detalhamento', 'Fabricação'],
+                images: []
+            }
+        };
+
+        function openModal(id) {
+            const project = projectDetails[id];
+            const container = document.getElementById('modal-container');
+            const content = document.getElementById('modal-content');
+            const title = document.getElementById('modal-title');
+
+            title.innerText = `Dossiê Técnico | ${project.title}`;
+            
+            let imagesHTML = project.images.map(img => `
+                <div class="space-y-4 mb-20">
+                    <div class="flex items-center gap-3">
+                        <span class="text-[9px] text-blue-600 font-bold uppercase tracking-tighter">FIG.</span>
+                        <h4 class="text-[10px] text-neutral-400 uppercase tracking-widest font-medium">${img.label}</h4>
+                    </div>
+                    <img src="${img.src}" alt="${img.label}" class="w-full border border-white/5 bg-neutral-900 shadow-2xl" onerror="this.parentElement.innerHTML += '<p class=text-xs text-red-800 uppercase italic>Imagem não encontrada no diretório GitHub.</p>'">
+                </div>
+            `).join('');
+
+            content.innerHTML = `
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid md:grid-cols-3 gap-16 mb-24 items-start">
+                        <div class="md:col-span-2">
+                            <h2 class="text-white text-5xl font-thin mb-8 italic tracking-tighter">${project.title}</h2>
+                            <p class="text-neutral-500 font-light text-lg leading-relaxed">${project.description}</p>
+                        </div>
+                        <div class="bg-white/[0.02] border border-white/5 p-8 space-y-6">
+                            <div>
+                                <span class="text-[9px] text-neutral-600 uppercase tracking-widest block mb-2">Tecnologias</span>
+                                <div class="flex flex-wrap gap-2">
+                                    ${project.tags.map(t => `<span class="text-[9px] border border-white/10 px-2 py-1 text-neutral-400">${t}</span>`).join('')}
+                                </div>
+                            </div>
+                            <div class="pt-6 border-t border-white/5">
+                                <span class="text-[9px] text-neutral-600 uppercase tracking-widest block mb-2">Status</span>
+                                <span class="text-[10px] text-blue-500 font-bold uppercase">Projeto Finalizado / Executado</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="image-gallery border-t border-white/5 pt-20">
+                        ${imagesHTML || '<p class="text-center text-neutral-700 italic">Documentação em fase de catalogação.</p>'}
+                    </div>
+                </div>
+            `;
+
+            container.classList.remove('hidden');
+            document.body.classList.add('modal-active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal-container').classList.add('hidden');
+            document.body.classList.remove('modal-active');
+        }
+
+        // --- MOTOR DE VIABILIDADE ---
+        function calcularEGravar() {
+            const terreno = parseFloat(document.getElementById('area-terreno').value);
+            const terreo = parseFloat(document.getElementById('area-terreo').value);
+            const construida = parseFloat(document.getElementById('area-construida').value);
+            const caMax = parseFloat(document.getElementById('zoneamento').value);
+
+            if (!terreno || !terreo || !construida) {
+                alert("Parâmetros técnicos incompletos.");
+                return;
+            }
+
+            const taxaOcupacao = ((terreo / terreno) * 100).toFixed(2);
+            const coeficiente = (construida / terreno).toFixed(2);
+            const potencialMaximo = terreno * caMax;
+            const remanescente = potencialMaximo - construida;
+
+            document.getElementById('res-to').innerHTML = `${taxaOcupacao}<span class="text-sm ml-2 text-neutral-700">%</span>`;
+            document.getElementById('res-ca').innerText = coeficiente;
+            document.getElementById('res-potencial').innerHTML = `${Math.abs(remanescente).toFixed(2)} <span class="text-xs text-neutral-600 tracking-normal">m²</span>`;
+
+            const stTO = document.getElementById('status-to');
+            const stCA = document.getElementById('status-ca');
+            stTO.classList.remove('hidden');
+            stCA.classList.remove('hidden');
+
+            if (taxaOcupacao > 70) {
+                stTO.innerText = "ALERTA: T.O. ELEVADA";
+                stTO.className = "status-pill status-alert";
+            } else {
+                stTO.innerText = "T.O. NORMALIZADA";
+                stTO.className = "status-pill status-ok";
+            }
+
+            if (coeficiente > caMax) {
+                stCA.innerText = "CA ULTRAPASSADO";
+                stCA.className = "status-pill status-alert";
+            } else {
+                stCA.innerText = "CONFORMIDADE";
+                stCA.className = "status-pill status-ok";
+            }
+        }
+
+        function limparCalculadora() {
+            document.getElementById('res-to').innerHTML = `0<span class="text-sm ml-2 text-neutral-700">%</span>`;
+            document.getElementById('res-ca').innerText = "0.00";
+            document.getElementById('res-potencial').innerHTML = `0.00 <span class="text-xs text-neutral-600 tracking-normal">m²</span>`;
+            document.getElementById('status-to').classList.add('hidden');
+            document.getElementById('status-ca').classList.add('hidden');
+        }
+
+        // --- GESTÃO DE CONTACTO ---
+        function enviarMensagem(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-enviar');
+            const status = document.getElementById('form-status');
+            
+            btn.innerText = "PROCESSANDO...";
+            btn.disabled = true;
+
+            setTimeout(() => {
+                status.innerText = "MENSAGEM ENVIADA PARA A CLOUD.";
+                status.classList.add('text-blue-500');
+                btn.innerText = "DISPARAR MENSAGEM";
+                btn.disabled = false;
+                document.getElementById('contact-form').reset();
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
